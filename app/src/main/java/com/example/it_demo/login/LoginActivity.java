@@ -3,16 +3,18 @@ package com.example.it_demo.login;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import com.example.it_demo.R;
+import com.example.it_demo.user.UserStatisticsMainActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
     View login_layout,register_layout;
-    Button login_register_button;
+    Button login_register_button , login_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,14 @@ public class LoginActivity extends AppCompatActivity {
         login_layout = findViewById(R.id.login_layout);
         register_layout = findViewById(R.id.register_layout);
         login_register_button = findViewById(R.id.login_register_button);
+        login_button = findViewById(R.id.login_button);
+        login_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, UserStatisticsMainActivity.class);
+                startActivity(intent);
+            }
+        });
         login_register_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

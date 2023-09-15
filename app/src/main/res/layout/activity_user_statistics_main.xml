@@ -41,7 +41,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_baseline_calendar_month_24" />
+            app:srcCompat="@drawable/ic_month" />
 
         <ImageView
             android:id="@+id/img_noteBook"
@@ -52,7 +52,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/img_dateBrowse"
             app:layout_constraintEnd_toStartOf="@+id/img_dateBrowse"
             app:layout_constraintTop_toTopOf="@+id/img_dateBrowse"
-            app:srcCompat="@drawable/ic_baseline_edit_note_24" />
+            app:srcCompat="@drawable/ic_notebook" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.github.mikephil.charting.charts.PieChart
@@ -106,7 +106,7 @@
                 android:layout_height="30dp"
                 android:layout_weight="2"
                 android:gravity="center"
-                app:srcCompat="@drawable/food_light" />
+                app:srcCompat="@drawable/ic_food" />
 
             <TextView
                 android:id="@+id/tv_food_percentage"
@@ -114,6 +114,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:gravity="center"
+                android:text="0.0%"
                 android:textSize="18sp" />
 
             <TextView
@@ -131,6 +132,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:gravity="right"
+                android:text="000"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -157,7 +159,7 @@
                 android:layout_height="30dp"
                 android:layout_weight="2"
                 android:gravity="center"
-                app:srcCompat="@drawable/traffic_light" />
+                app:srcCompat="@drawable/ic_traffic" />
 
             <TextView
                 android:id="@+id/tv_traffic_percentage"
@@ -165,6 +167,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:gravity="center"
+                android:text="0.0%"
                 android:textSize="18sp" />
 
             <TextView
@@ -182,6 +185,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:gravity="right"
+                android:text="000"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -208,7 +212,7 @@
                 android:layout_height="30dp"
                 android:layout_weight="2"
                 android:gravity="center"
-                app:srcCompat="@drawable/medical_lignt" />
+                app:srcCompat="@drawable/ic_medical" />
 
             <TextView
                 android:id="@+id/tv_medical_percentage"
@@ -216,6 +220,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:gravity="center"
+                android:text="0.0%"
                 android:textSize="18sp" />
 
             <TextView
@@ -233,6 +238,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:gravity="right"
+                android:text="000"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -259,7 +265,7 @@
                 android:layout_height="30dp"
                 android:layout_weight="2"
                 android:gravity="center"
-                app:srcCompat="@drawable/pie_light" />
+                app:srcCompat="@drawable/ic_pet" />
 
             <TextView
                 android:id="@+id/tv_pet_percentage"
@@ -267,6 +273,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:gravity="center"
+                android:text="0.0%"
                 android:textSize="18sp" />
 
             <TextView
@@ -284,6 +291,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:gravity="right"
+                android:text="000"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -310,7 +318,7 @@
                 android:layout_height="30dp"
                 android:layout_weight="2"
                 android:gravity="center"
-                app:srcCompat="@drawable/life_light" />
+                app:srcCompat="@drawable/ic_life" />
 
             <TextView
                 android:id="@+id/tv_life_percentage"
@@ -318,6 +326,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:gravity="center"
+                android:text="0.0%"
                 android:textSize="18sp" />
 
             <TextView
@@ -335,6 +344,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:gravity="right"
+                android:text="000"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -360,7 +370,7 @@
                 android:layout_height="30dp"
                 android:layout_weight="2"
                 android:gravity="center"
-                app:srcCompat="@drawable/electronic_light" />
+                app:srcCompat="@drawable/ic_life" />
 
             <TextView
                 android:id="@+id/tv_3c_percentage"
@@ -368,6 +378,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:gravity="center"
+                android:text="0.0%"
                 android:textSize="18sp" />
 
             <TextView
@@ -385,6 +396,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:gravity="right"
+                android:text="000"
                 android:textSize="18sp" />
         </LinearLayout>
     </LinearLayout>
@@ -429,7 +441,7 @@
                 android:layout_height="30dp"
                 android:layout_weight="2"
                 android:gravity="center"
-                app:srcCompat="@drawable/deposit_light" />
+                app:srcCompat="@drawable/ic_deposit" />
 
             <TextView
                 android:id="@+id/tv_deposit_percentage"
@@ -437,6 +449,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:gravity="center"
+                android:text="0.0%"
                 android:textSize="18sp" />
 
             <TextView
@@ -454,6 +467,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:gravity="right"
+                android:text="000"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -480,7 +494,7 @@
                 android:layout_height="30dp"
                 android:layout_weight="2"
                 android:gravity="center"
-                app:srcCompat="@drawable/wallet_light" />
+                app:srcCompat="@drawable/ic_wallet" />
 
             <TextView
                 android:id="@+id/tv_wallet_percentage"
@@ -488,6 +502,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:gravity="center"
+                android:text="0.0%"
                 android:textSize="18sp" />
 
             <TextView
@@ -505,6 +520,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:gravity="right"
+                android:text="000"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -531,7 +547,7 @@
                 android:layout_height="30dp"
                 android:layout_weight="2"
                 android:gravity="center"
-                app:srcCompat="@drawable/storedvalue_light" />
+                app:srcCompat="@drawable/ic_storedvalue" />
 
             <TextView
                 android:id="@+id/tv_storedvalue_percentage"
@@ -539,6 +555,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:gravity="center"
+                android:text="0.0%"
                 android:textSize="18sp" />
 
             <TextView
@@ -556,6 +573,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:gravity="right"
+                android:text="000"
                 android:textSize="18sp" />
         </LinearLayout>
 
