@@ -33,9 +33,9 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/img_dateBrowse"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:id="@+id/img_intent_dateBrowse"
+            android:layout_width="21dp"
+            android:layout_height="25dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -49,9 +49,9 @@
             android:layout_height="30dp"
             android:layout_weight="1"
             android:layout_marginEnd="10dp"
-            app:layout_constraintBottom_toBottomOf="@+id/img_dateBrowse"
-            app:layout_constraintEnd_toStartOf="@+id/img_dateBrowse"
-            app:layout_constraintTop_toTopOf="@+id/img_dateBrowse"
+            app:layout_constraintBottom_toBottomOf="@+id/img_intent_dateBrowse"
+            app:layout_constraintEnd_toStartOf="@+id/img_intent_dateBrowse"
+            app:layout_constraintTop_toTopOf="@+id/img_intent_dateBrowse"
             app:srcCompat="@drawable/ic_notebook" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

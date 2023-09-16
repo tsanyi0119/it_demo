@@ -13,6 +13,13 @@
         android:theme="@style/Theme.It_demo"
         tools:targetApi="31">
         <activity
+            android:name=".user.UserDateBrowseActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".user.UserStatisticsMainActivity"
             android:exported="false">
             <meta-data

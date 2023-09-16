@@ -2,6 +2,7 @@ package com.example.it_demo.user;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.it_demo.R;
 import com.github.mikephil.charting.animation.Easing;
@@ -30,7 +32,7 @@ public class UserStatisticsMainActivity extends AppCompatActivity {
 
     private Button btn_mode_assets , btn_mode_expenses;
     private View view_assets , view_expenses;
-
+    private ImageView img_intent_dateBrowse;
     private PieChart pieChart;
 
     private ArrayList<PieEntry> entries = new ArrayList<PieEntry>();
@@ -41,6 +43,7 @@ public class UserStatisticsMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_statistics_main);
         view_assets = findViewById(R.id.view_assets);
         view_expenses = findViewById(R.id.view_expenses);
+        img_intent_dateBrowse = findViewById(R.id.img_intent_dateBrowse);
         btn_mode_assets = findViewById(R.id.btn_mode_assets);
         btn_mode_expenses = findViewById(R.id.btn_mode_expenses);
         pieChart = findViewById(R.id.bar_piechart);
@@ -61,6 +64,14 @@ public class UserStatisticsMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setExpensesView();
+            }
+        });
+
+        img_intent_dateBrowse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UserStatisticsMainActivity.this,UserDateBrowseActivity.class);
+                startActivity(intent);
             }
         });
 
