@@ -1,4 +1,4 @@
-package com.example.it_demo.user;
+package com.example.it_demo.user.statisticsMain;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.it_demo.R;
+import com.example.it_demo.user.dateBrowse.UserDateBrowseActivity;
+import com.example.it_demo.user.noteBook.UserNoteBookActivity;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
@@ -32,7 +34,7 @@ public class UserStatisticsMainActivity extends AppCompatActivity {
 
     private Button btn_mode_assets , btn_mode_expenses;
     private View view_assets , view_expenses;
-    private ImageView img_intent_dateBrowse;
+    private ImageView img_intent_dateBrowse , img_intent_note;
     private PieChart pieChart;
 
     private ArrayList<PieEntry> entries = new ArrayList<PieEntry>();
@@ -41,18 +43,21 @@ public class UserStatisticsMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_statistics_main);
+        init();
+
+    }
+    private void init(){
         view_assets = findViewById(R.id.view_assets);
         view_expenses = findViewById(R.id.view_expenses);
         img_intent_dateBrowse = findViewById(R.id.img_intent_dateBrowse);
+        img_intent_note = findViewById(R.id.img_intent_note);
         btn_mode_assets = findViewById(R.id.btn_mode_assets);
         btn_mode_expenses = findViewById(R.id.btn_mode_expenses);
         pieChart = findViewById(R.id.bar_piechart);
         setupUI();
-
     }
 
     private void setupUI() {
-
         btn_mode_assets.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,7 +75,15 @@ public class UserStatisticsMainActivity extends AppCompatActivity {
         img_intent_dateBrowse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(UserStatisticsMainActivity.this,UserDateBrowseActivity.class);
+                Intent intent = new Intent(UserStatisticsMainActivity.this, UserDateBrowseActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        img_intent_note.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UserStatisticsMainActivity.this, UserNoteBookActivity.class);
                 startActivity(intent);
             }
         });

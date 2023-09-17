@@ -13,14 +13,28 @@
         android:theme="@style/Theme.It_demo"
         tools:targetApi="31">
         <activity
-            android:name=".user.UserDateBrowseActivity"
+            android:name=".user.noteBook.UserNoteBookActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".user.UserStatisticsMainActivity"
+            android:name=".user.keepAccount.UserKeepAccountActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".user.dateBrowse.UserDateBrowseActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".user.statisticsMain.UserStatisticsMainActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

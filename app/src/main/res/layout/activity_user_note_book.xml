@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".user.dateBrowse.UserDateBrowseActivity">
+    tools:context=".user.noteBook.UserNoteBookActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="記 帳 日 常"
+            android:text="記 事 本"
             android:textColor="#fff"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -32,7 +32,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/img_back_statistics"
+            android:id="@+id/img_back_noteBook"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_weight="1"
@@ -51,67 +51,33 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_settings" />
 
+        <ImageView
+            android:id="@+id/img_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/img_set"
+            app:layout_constraintEnd_toStartOf="@+id/img_set"
+            app:layout_constraintTop_toTopOf="@+id/img_set"
+            app:layout_constraintVertical_bias="0.384"
+            app:srcCompat="@drawable/ic_note_add" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="0dp"
-        android:layout_height="325dp"
-        android:background="#25CEDFFA"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"
-        android:dateTextAppearance="@style/calendarviewText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#742739B0"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/calendarView"
-        tools:layout_editor_absoluteX="-16dp"></LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calendarView"
-        app:layout_constraintVertical_bias="0.777" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbarSize="5dp"
-        android:visibility="visible"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:background="@drawable/container_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout">
-
-        <ImageView
-            android:id="@+id/img_add"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-
-            android:layout_alignParentStart="true"
-
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-
-            android:layout_marginStart="150dp"
-            android:layout_marginEnd="150dp"
-            android:layout_marginBottom="50dp"
-            app:srcCompat="@drawable/ic_add" />
-
-    </RelativeLayout>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

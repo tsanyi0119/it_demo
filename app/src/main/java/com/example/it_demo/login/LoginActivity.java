@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.it_demo.R;
-import com.example.it_demo.user.UserStatisticsMainActivity;
+import com.example.it_demo.user.statisticsMain.UserStatisticsMainActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
