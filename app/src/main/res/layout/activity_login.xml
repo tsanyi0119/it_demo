@@ -150,7 +150,7 @@
                 android:background="#000000" />
 
             <EditText
-                android:id="@+id/login_email_edittext"
+                android:id="@+id/edit_login_email"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
@@ -184,7 +184,7 @@
                 android:background="#000000" />
 
             <EditText
-                android:id="@+id/login_password_edittext"
+                android:id="@+id/edit_login_password"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
@@ -206,7 +206,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline12">
 
             <Button
-                android:id="@+id/login_button"
+                android:id="@+id/btn_login"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginTop="10dp"
@@ -219,7 +219,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/login_register_button"
+                android:id="@+id/btn_login_register"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginBottom="10dp"
@@ -312,7 +312,7 @@
                 android:background="#000000" />
 
             <EditText
-                android:id="@+id/register_user_edittext"
+                android:id="@+id/edit_register_userName"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
@@ -346,7 +346,7 @@
                 android:background="#000000" />
 
             <EditText
-                android:id="@+id/register_email_edittext"
+                android:id="@+id/edit_register_email"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
@@ -380,7 +380,7 @@
                 android:background="#000000" />
 
             <EditText
-                android:id="@+id/register_password_edittext"
+                android:id="@+id/edit_register_password"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
@@ -403,7 +403,7 @@
 
 
             <Button
-                android:id="@+id/register_register_button"
+                android:id="@+id/btn_register"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginBottom="10dp"

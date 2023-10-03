@@ -11,8 +11,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.it_demo.R;
+import com.example.it_demo.user.dateBrowse.ExpensesData;
+import com.example.it_demo.user.dateBrowse.TotalRecordData;
 import com.example.it_demo.user.dateBrowse.UserDateBrowseActivity;
 import com.example.it_demo.user.noteBook.UserNoteBookActivity;
 import com.github.mikephil.charting.animation.Easing;
@@ -29,15 +32,30 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.utils.MPPointF;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class UserStatisticsMainActivity extends AppCompatActivity {
+public class UserStatisticsMainActivity extends AppCompatActivity implements UserStatisticsMainContract.UserStatisticsMainActivity{
 
     private Button btn_mode_assets , btn_mode_expenses;
     private View view_assets , view_expenses;
     private ImageView img_intent_dateBrowse , img_intent_note;
     private PieChart pieChart;
-
     private ArrayList<PieEntry> entries = new ArrayList<PieEntry>();
+    private TextView tv_food_percentage,
+            tv_food_sum,
+            tv_traffic_percentage,
+            tv_traffic_sum,
+            tv_medical_percentage,
+            tv_medical_sum,
+            tv_pie_percentage,
+            tv_pie_sum,
+            tv_life_percentage,
+            tv_life_sum,
+            tv_3c_percentage,
+            tv_3c_sum;
+    int totalPrice_food = 0,totalPrice_traffic = 0,totalPrice_medical = 0, totalPrice_pie = 0,totalPrice_life = 0,totalPrice_3c = 0;
+    private List<TotalRecordData> totalRecordList = new ArrayList<>();
+    private UserStatisticsMainContract.UserStatisticsMainPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +65,26 @@ public class UserStatisticsMainActivity extends AppCompatActivity {
 
     }
     private void init(){
+        presenter = new UserStatisticsMainPresenter(this);
+        presenter.loadExpensesData();
         view_assets = findViewById(R.id.view_assets);
         view_expenses = findViewById(R.id.view_expenses);
         img_intent_dateBrowse = findViewById(R.id.img_intent_dateBrowse);
         img_intent_note = findViewById(R.id.img_intent_note);
         btn_mode_assets = findViewById(R.id.btn_mode_assets);
         btn_mode_expenses = findViewById(R.id.btn_mode_expenses);
+        tv_food_percentage =findViewById(R.id.tv_food_percentage);
+        tv_food_sum=findViewById(R.id.tv_food_sum);
+        tv_traffic_percentage=findViewById(R.id.tv_traffic_percentage);
+        tv_traffic_sum=findViewById(R.id.tv_traffic_sum);
+        tv_medical_percentage=findViewById(R.id.tv_medical_percentage);
+        tv_medical_sum=findViewById(R.id.tv_medical_sum);
+        tv_pie_percentage=findViewById(R.id.tv_pet_percentage);
+        tv_pie_sum=findViewById(R.id.tv_pet_sum);
+        tv_life_percentage=findViewById(R.id.tv_life_percentage);
+        tv_life_sum=findViewById(R.id.tv_life_sum);
+        tv_3c_percentage=findViewById(R.id.tv_3c_percentage);
+        tv_3c_sum=findViewById(R.id.tv_3c_sum);
         pieChart = findViewById(R.id.bar_piechart);
         setupUI();
     }
@@ -96,8 +128,7 @@ public class UserStatisticsMainActivity extends AppCompatActivity {
     private void setAssetsView() {
         view_assets.setVisibility(View.VISIBLE);
         view_expenses.setVisibility(View.GONE);
-        btn_mode_assets.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FAD689")));
-        btn_mode_expenses.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFFFFB")));
+
     }
 
     //設定支出UI配置
@@ -111,14 +142,38 @@ public class UserStatisticsMainActivity extends AppCompatActivity {
 
     //設定支出圖
     private void setExpensesPieChart() {
-
+        tv_food_sum.setText(String.valueOf(totalPrice_food));
+        tv_traffic_sum.setText(String.valueOf(totalPrice_traffic));
+        tv_medical_sum.setText(String.valueOf(totalPrice_medical));
+        tv_pie_sum.setText(String.valueOf(totalPrice_pie));
+        tv_life_sum.setText(String.valueOf(totalPrice_life));
+        tv_3c_sum.setText(String.valueOf(totalPrice_3c));
+        double totalSum = totalPrice_food + totalPrice_traffic + totalPrice_medical + totalPrice_pie + totalPrice_life + totalPrice_medical;
+        double percentage_food = (totalPrice_food / totalSum) * 100;
+        double percentage_traffic = (totalPrice_traffic / totalSum) * 100;
+        double percentage_medical = (totalPrice_medical / totalSum) * 100;
+        double percentage_pie = (totalPrice_pie / totalSum) * 100;
+        double percentage_life = (totalPrice_life / totalSum) * 100;
+        double percentage_3c = (totalPrice_3c / totalSum) * 100;
+        percentage_food = Math.round(percentage_food * 10) / 10.0;
+        percentage_traffic = Math.round(percentage_traffic * 10) / 10.0;
+        percentage_medical = Math.round(percentage_medical * 10) / 10.0;
+        percentage_pie = Math.round(percentage_pie * 10) / 10.0;
+        percentage_life = Math.round(percentage_life * 10) / 10.0;
+        percentage_3c = Math.round(percentage_3c * 10) / 10.0;
+        tv_food_percentage.setText(Double.toString(percentage_food) + "%");
+        tv_traffic_percentage.setText(Double.toString(percentage_traffic) + "%");
+        tv_medical_percentage.setText(Double.toString(percentage_medical) + "%");
+        tv_pie_percentage.setText(Double.toString(percentage_pie) + "%");
+        tv_life_percentage.setText(Double.toString(percentage_life) + "%");
+        tv_3c_percentage.setText(Double.toString(percentage_3c) + "%");
         entries.clear();
-        entries.add(new PieEntry(10f,"飲食"));
-        entries.add(new PieEntry(20f,"交通"));
-        entries.add(new PieEntry(30f,"醫療"));
-        entries.add(new PieEntry(20f,"寵物"));
-        entries.add(new PieEntry(10f,"生活"));
-        entries.add(new PieEntry(10f,"數位"));
+        entries.add(new PieEntry(totalPrice_food,"飲食"));
+        entries.add(new PieEntry(totalPrice_traffic,"交通"));
+        entries.add(new PieEntry(totalPrice_medical,"醫療"));
+        entries.add(new PieEntry(totalPrice_pie,"寵物"));
+        entries.add(new PieEntry(totalPrice_life,"生活"));
+        entries.add(new PieEntry(totalPrice_3c,"數位"));
 
         pieChart.getDescription().setEnabled(false);//設置PieChart圖表的描述
         pieChart.setExtraOffsets(20, 0, 20, 0);//圓餅圖上下左右的間距
@@ -215,5 +270,47 @@ public class UserStatisticsMainActivity extends AppCompatActivity {
                 Log.e("test","關閉");
             }
         });
+    }
+
+    @Override
+    public void showExpenses(List<ExpensesData> expensesDataList) {
+        for(int i = 0 ; i < expensesDataList.size() ; i++){
+            TotalRecordData totalRecordData = new TotalRecordData();
+            totalRecordData.setId(expensesDataList.get(i).getId());
+            totalRecordData.setType(expensesDataList.get(i).getExpensesType());
+            totalRecordData.setName(expensesDataList.get(i).getExpensesName());
+            totalRecordData.setValue(expensesDataList.get(i).getExpensesValue());
+            totalRecordData.setClassification("expenses");
+            totalRecordList.add(totalRecordData);
+
+            totalPrice_food = 0;
+            totalPrice_traffic = 0;
+            totalPrice_medical = 0;
+            totalPrice_pie = 0;
+            totalPrice_life = 0;
+            totalPrice_3c = 0;
+            for (ExpensesData expenses : expensesDataList) {
+                if (expenses.getExpensesType().equals("food")) {
+                    totalPrice_food += expenses.getExpensesValue();
+                }
+                if (expenses.getExpensesType().equals("traffic")) {
+                    totalPrice_traffic += expenses.getExpensesValue();
+                }
+                if (expenses.getExpensesType().equals("medical")) {
+                    totalPrice_medical += expenses.getExpensesValue();
+                }
+                if (expenses.getExpensesType().equals("pie")) {
+                    totalPrice_pie += expenses.getExpensesValue();
+                }
+                if (expenses.getExpensesType().equals("life")) {
+                    totalPrice_life += expenses.getExpensesValue();
+                }
+                if (expenses.getExpensesType().equals("3c")) {
+                    totalPrice_3c += expenses.getExpensesValue();
+                }
+            }
+        }
+        setExpensesPieChart();
+
     }
 }
